@@ -19,7 +19,7 @@
   https://learn.microsoft.com/en-us/archive/msdn-technet-forums/8f54f591-073a-49b5-b433-cd6a0947a13a#64aaa052-15fa-414d-8590-58e270e00b00
   
 #>
-$Device = Read-Host
+$Device = Read-Host "Enter the hostname"
 $Session = new-cimsession -ComputerName $Device -SessionOption (New-CimSessionOption -Protocol DCOM)
 
 if($Session){
