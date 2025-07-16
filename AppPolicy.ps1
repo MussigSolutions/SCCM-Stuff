@@ -24,7 +24,7 @@ $Session = new-cimsession -ComputerName $Device -SessionOption (New-CimSessionOp
 
 if($Session){
 
-  $ApplicationPolicy = Get-CimInstance -Namespace 'ROOT\CCM\ClientSDK' -Query "SELECT * FROM CCM_ApplicationPolicy" | Where {$_.CurrentState -eq 'Error'}
+  $ApplicationPolicy = Get-CimInstance -cimsession $session -Namespace 'ROOT\CCM\ClientSDK' -Query "SELECT * FROM CCM_ApplicationPolicy" | Where {$_.CurrentState -eq 'Error'}
   
   if(!Applicationpolicy){
     Write-host 'No applications reporting an error state.'
